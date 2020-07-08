@@ -1,6 +1,6 @@
 //app.js
 // 引入config.js文件 服务器根域名
-let config = require('./pages/js/config.js')
+let config = require('./config/config.js')
 App({
   config: config,
   onLaunch: function () {
