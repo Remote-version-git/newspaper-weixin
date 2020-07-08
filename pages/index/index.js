@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
+// let that
 
 Page({
   data: {
@@ -50,5 +51,23 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
+  clickOn: function () {
+    wx.request ({
+      url: app.config.apiUrl + 'v2/movie/subject/1764796', // 拼接接口地址是
+      method: 'get',
+      header: {
+        'content-type' : 'application/json'
+      },
+      success (res) {
+        if (res) {
+          console.log(res.data) //在控制台输出
+          // 开始获取数据 eg: textBox(获取文字内容)
+          textBox: res.data.data.list.basic.brand_story //根据network查看请求到的接口的结构获取相对应的数据
+        } else {
+          console.log('没有数据')
+        }
+      }
+    })
+  },
 })

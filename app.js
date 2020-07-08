@@ -1,5 +1,8 @@
 //app.js
+// 引入config.js文件 服务器根域名
+let config = require('./pages/js/config.js')
 App({
+  config: config,
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
