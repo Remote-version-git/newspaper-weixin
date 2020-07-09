@@ -1,0 +1,13 @@
+<view class="{{show ? '~show' : '~hidden'}}">
+	<van-nav-bar title="新闻头条" />
+	<van-tabs active="{{ active }}">
+		<van-tab title="{{item.name}}" wx:for="{{channels}}" wx:key="id" />
+	</van-tabs>
+<recycle-view batch="{{batchSetRecycleData}}" id="recycleId">
+  <recycle-item wx:for="{{channels}}" wx:key="id">
+    <view>
+       {{item.name}}
+    </view>
+  </recycle-item>
+</recycle-view>
+</view>

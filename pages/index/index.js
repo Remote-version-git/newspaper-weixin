@@ -1,73 +1,15 @@
-//index.js
-//获取应用实例
-const app = getApp()
-// let that
+const app = getApp();
+
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+    active: 0,
+    loading: true
   },
   onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
+   
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  },
-  clickOn: function () {
-    wx.request ({
-      url: app.config.apiUrl + 'v2/movie/subject/1764796', // 拼接接口地址是
-      method: 'get',
-      header: {
-        'content-type' : 'application/json'
-      },
-      success (res) {
-        if (res) {
-          console.log(res.data) //在控制台输出
-          // 开始获取数据 eg: textBox(获取文字内容)
-          textBox: res.data.data.list.basic.brand_story //根据network查看请求到的接口的结构获取相对应的数据
-        } else {
-          console.log('没有数据')
-        }
-      }
-    })
-  },
+  onChange(event) {
+    this.setData({ active: event.detail });
+  }
 })
