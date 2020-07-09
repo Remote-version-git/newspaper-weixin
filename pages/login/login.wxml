@@ -1,2 +1,30 @@
-<!--pages/login/login.wxml-->
-<text>pages/login/login.wxml</text>
+<view>
+<van-nav-bar
+  title="标题"
+/>
+<van-cell-group>
+  <van-field
+    value="{{ phonenumber }}"
+    required
+    clearable
+    label="手机号"
+    placeholder="请输入手机号"
+    bind:change="onChange"
+  />
+  <van-field
+    value="{{ captcha }}"
+    center
+    clearable
+    label="短信验证码"
+    placeholder="请输入短信验证码"
+    border="{{ false }}"
+    bind:change="onChangeCode"
+    use-button-slot
+  >
+    <van-button slot="button" size="small" type="primary" bindtap="sendCode"
+      >{{buttonvalue}}</van-button
+    >
+  </van-field>
+</van-cell-group>
+  <van-button type="info" size="large" bindtap="onlogin">登录</van-button>
+</view>

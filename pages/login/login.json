@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "van-field": "@vant/weapp/field/index"
+    
+  },
+  "navigationBarTitleText":"授权登录"
 }
