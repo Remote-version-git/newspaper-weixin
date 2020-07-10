@@ -1,5 +1,5 @@
 
-import { getAllChannels, sendCode, login } from '../../api/news.js';
+import { getAllChannels } from '../../api/news.js';
 
 Component({
  
@@ -28,8 +28,6 @@ Component({
 
   },
   attached() {
-   login("925365")
-
     getAllChannels((res) => {
       this.setData({
         channels: res.data.data.channels
