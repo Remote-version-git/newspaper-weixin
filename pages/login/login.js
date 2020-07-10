@@ -10,7 +10,8 @@ Page({
   data: {
     phonenumber: '',
     captcha: '',
-    buttonvalue: '发送验证码'
+    buttonvalue: '发送验证码',
+    phonemessage: '',
   },
 
   /**
@@ -20,17 +21,48 @@ Page({
 
   },
   onChange(event) {
+    // const phone = event.detail || event;
+    // let message = '';
+    // let disable = '';
+    // if (phone) {
+    //   if (/^1(3|4|5|7|8)\d{9}$/.test(phone)) {
+    //     message = '';
+    //     disable = false;
+    //   } else {
+    //     message = '您输入的手机号码有误';
+    //     disable = true;
+    //   }
+    // } else {
+    //   message = '输入的手机号不能为空',
+    //   disable = true
+    // }
     // event.detail 为当前输入的值
     this.setData({
-      phonenumber: event.detail
+      phonenumber: event.detail,
+
     });
   },
   // 发送验证码计时
   sendCode: function () {
-    if (this.data.phonenumber === "") return;
-    sendCode(this.data.phonenumber, (res) => {
-      console.log(res)
-    })
+    if (this.data.phonenumber == "") {
+      this.data.phonemessage = "请先输入电话号码";
+      this.setData({
+        phonemessage: this.data.phonemessage
+      })
+      return;
+    } else if (this.data.phonenumber !== "") {
+      var reg = /^((13|14|15|17|18)[0-9]{1}\d{8})$/;
+      if (this.data.phonenumber != reg) {
+        this.data.phonemessage = "请填写正确的电话号码"
+        this.setData({
+          phonemessage: this.data.phonemessage
+        })
+      } else {
+        buttonChange();
+      }
+    }
+  },
+  buttonChange: function () {
     let that = this;
     let buttonvalue = '60'
     that.setData({
@@ -80,8 +112,8 @@ Page({
           })
         } else {
           wx.showToast({
-            title: '登录失败',
-            icon: 'waring'
+            title: '登录失败,请确认验证码输入是否正确',
+            icon: 'warn'
           })
         }
         wx.navigateTo({
