@@ -8,10 +8,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    phonenumber: '',
+    phoneNumber: '',
     captcha: '',
-    buttonvalue: '发送验证码',
-    phonemessage: '',
+    buttonValue: '发送验证码',
+    phoneMessage: '',
+    sub:true,
+    codeInput: true,
+    banSend: false
   },
 
   /**
@@ -38,63 +41,75 @@ Page({
     // }
     // event.detail 为当前输入的值
     this.setData({
-      phonenumber: event.detail,
+      phoneNumber: event.detail,
 
     });
   },
   // 发送验证码计时
   sendCode: function () {
-    if (this.data.phonenumber == "") {
-      this.data.phonemessage = "请先输入电话号码";
+    if (this.data.phoneNumber == "") {
+      this.data.phoneMessage = "请先输入电话号码";
       this.setData({
-        phonemessage: this.data.phonemessage
+        phoneMessage: this.data.phoneMessage
       })
       return;
-    } else if (this.data.phonenumber !== "") {
-      var reg = /^((13|14|15|17|18)[0-9]{1}\d{8})$/;
-      if (this.data.phonenumber != reg) {
-        this.data.phonemessage = "请填写正确的电话号码"
+    } else if (this.data.phoneNumber !== "") {
+      if (!/^1(3|4|5|7|8)\d{9}$/.test(this.data.phoneNumber)) {
+        this.data.phoneMessage = "请填写正确的电话号码"
         this.setData({
-          phonemessage: this.data.phonemessage
+          phoneMessage: this.data.phoneMessage
         })
       } else {
-        buttonChange();
+        this.setData({
+          codeInput: false,
+          banSend: true
+        })
+        // buttonChange();
+        // buttonChange: function () {
+        // }
+        let that = this;
+        let buttonValue = '60'
+        that.setData({
+          timer: setInterval(function () {
+            buttonValue--;
+            that.setData({
+              buttonValue: buttonValue + 's'
+            })
+            if (buttonValue == 0) {
+              clearInterval(that.data.timer);
+              that.setData({
+                buttonValue: '发送验证码'
+              })
+            }
+          }, 1000)
+        })
       }
     }
   },
-  buttonChange: function () {
-    let that = this;
-    let buttonvalue = '60'
-    that.setData({
-      timer: setInterval(function () {
-        buttonvalue--;
-        that.setData({
-          buttonvalue: buttonvalue + 's'
-        })
-        if (buttonvalue == 0) {
-          clearInterval(that.data.timer);
-          that.setData({
-            buttonvalue: '发送验证码'
-          })
-        }
-      }, 1000)
-    })
-  },
   onChangeCode(e) {
+    if (this.data.captcha.length === 5 ) {
+      this.setData({
+        sub: false
+      })
+    } else {
+      this.setData({
+        sub: true
+      })
+    }
     this.setData({
       captcha: e.detail
     })
   },
   onlogin: function () {
     console.log(this);
-    var phone = this.data.phonenumber;
+    var phone = this.data.phoneNumber;
     var setcode = this.data.captcha;
     console.log(phone);
     console.log(setcode)
     wx.request({
       url: app.config.apiUrl + '/app/v1_0/authorizations',
       data: {
-        mobile: this.data.phonenumber,
+        mobile: this.data.phoneNumber,
         code: this.data.captcha,
       },
       method: 'POST',
@@ -107,18 +122,18 @@ Page({
           })
           // 存入setStorage
           wx.setStorage({
-            key: 'kkk',
-            data: res.data.message, //存第三条数据
+            key: 'key',
+            data: res.data.message
+          })
+          wx.navigateTo({
+            url: '../index/index'
           })
         } else {
           wx.showToast({
-            title: '登录失败,请确认验证码输入是否正确',
-            icon: 'warn'
+            title: '登录失败，请确认验证码',
+            icon: 'none'
           })
         }
-        wx.navigateTo({
-          url: '../index/index'
-        })
       },
       fail: function (res) {
         console.log(res)
