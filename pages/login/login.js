@@ -8,13 +8,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    phoneNumber: '',
-    captcha: '',
-    buttonValue: '发送验证码',
-    phoneMessage: '',
-    sub:true,
-    codeInput: true,
-    banSend: false
+    phoneNumber: '', //手机号
+    captcha: '', //验证码
+    buttonValue: '发送验证码', //发送验证码按钮上的字
+    phoneMessage: '', //手机号输入提示
+    codeInput: true, //是否禁用验证码输入框 
+    banSend: false, //是否禁用发送验证码按钮
+    sub: true //是否禁用登录按钮
   },
 
   /**
@@ -23,30 +23,16 @@ Page({
   onLoad: function (options) {
 
   },
+  // 监听电话号码输入
   onChange(event) {
-    // const phone = event.detail || event;
-    // let message = '';
-    // let disable = '';
-    // if (phone) {
-    //   if (/^1(3|4|5|7|8)\d{9}$/.test(phone)) {
-    //     message = '';
-    //     disable = false;
-    //   } else {
-    //     message = '您输入的手机号码有误';
-    //     disable = true;
-    //   }
-    // } else {
-    //   message = '输入的手机号不能为空',
-    //   disable = true
-    // }
-    // event.detail 为当前输入的值
     this.setData({
       phoneNumber: event.detail,
 
     });
   },
-  // 发送验证码计时
+  // 发送验证码功能
   sendCode: function () {
+    // 发送之前先判断输入的电话号码
     if (this.data.phoneNumber == "") {
       this.data.phoneMessage = "请先输入电话号码";
       this.setData({
@@ -61,24 +47,25 @@ Page({
         })
       } else {
         this.setData({
-          codeInput: false,
-          banSend: true
+          codeInput: false, //解除验证码输入框的禁用
+          banSend: true //禁用发送验证码按钮
         })
-        // buttonChange();
-        // buttonChange: function () {
-        // }
+        sendCode(this.data.phoneNumber, (res) => { 
+          console.log(res) 
+        }) 
         let that = this;
-        let buttonValue = '60'
+        let buttonValue = '60' //验证码发送后倒计时60秒
         that.setData({
           timer: setInterval(function () {
             buttonValue--;
             that.setData({
               buttonValue: buttonValue + 's'
             })
-            if (buttonValue == 0) {
+            if (buttonValue == 0) { //倒计时结束
               clearInterval(that.data.timer);
               that.setData({
-                buttonValue: '发送验证码'
+                buttonValue: '发送验证码', //按钮变回原样
+                banSend: false // 解除发送验证码按钮的禁用
               })
             }
           }, 1000)
@@ -86,26 +73,23 @@ Page({
       }
     }
   },
+  //监听验证码输入框
   onChangeCode(e) {
-    if (this.data.captcha.length === 5 ) {
+    if (this.data.captcha.length === 5) {
       this.setData({
-        sub: false
+        sub: false // 解除登录按钮的禁用
       })
     } else {
       this.setData({
-        sub: true
+        sub: true //禁用登录按钮
       })
     }
     this.setData({
       captcha: e.detail
     })
   },
+  // 登录功能
   onlogin: function () {
-    console.log(this);
-    var phone = this.data.phoneNumber;
-    var setcode = this.data.captcha;
-    console.log(phone);
-    console.log(setcode)
     wx.request({
       url: app.config.apiUrl + '/app/v1_0/authorizations',
       data: {
@@ -115,7 +99,7 @@ Page({
       method: 'POST',
       success: function (res) {
         console.log(res)
-        if (res.statusCode === '200') {
+        if (res.statusCode == '200') {
           wx.showToast({
             title: '验证成功',
             icon: 'success',
@@ -123,10 +107,10 @@ Page({
           // 存入setStorage
           wx.setStorage({
             key: 'key',
-            data: res.data.message
+            data: res.data.data
           })
           wx.navigateTo({
-            url: '../index/index'
+            url: '../index/index' //登录成功跳转到首页
           })
         } else {
           wx.showToast({
@@ -139,6 +123,7 @@ Page({
         console.log(res)
       }
     })
+    console.log(localStorage);
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
