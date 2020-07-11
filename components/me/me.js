@@ -1,8 +1,8 @@
-
-import { getAllChannels } from '../../api/news.js';
+// components/me.js
+import { getUser } from '../../api/me.js';
+const app = getApp();
 
 Component({
- 
   /**
    * 组件的属性列表
    */
@@ -17,8 +17,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    active: 1,
-    channels: []
+    user: {},
   },
 
   /**
@@ -26,12 +25,5 @@ Component({
    */
   methods: {
 
-  },
-  attached() {
-    getAllChannels((res) => {
-      this.setData({
-        channels: res.data.data.channels
-      })
-    })
   }
 })

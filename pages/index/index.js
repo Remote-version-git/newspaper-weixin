@@ -3,7 +3,7 @@ const app = getApp();
 
 Page({
   data: {
-    active: 0,
+    active: 3,
     loading: true
   },
   onLoad: function () {
