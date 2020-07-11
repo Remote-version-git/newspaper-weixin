@@ -20,7 +20,10 @@
     "van-tabbar": "@vant/weapp/tabbar/index",
     "van-tabbar-item": "@vant/weapp/tabbar-item/index",
     "recycle-view": "miniprogram-recycle-view/recycle-view",
-    "recycle-item": "miniprogram-recycle-view/recycle-item"
+    "recycle-item": "miniprogram-recycle-view/recycle-item",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-image": "@vant/weapp/image/index"
   },
   "sitemapLocation": "sitemap.json"
 }

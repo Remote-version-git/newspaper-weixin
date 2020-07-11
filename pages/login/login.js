@@ -67,16 +67,18 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        console.log(res)
-        if (res.statusCode === '200') {
+        if (res.statusCode === '200' || '201') {
           wx.showToast({
             title: '验证成功',
             icon: 'success',
           })
           // 存入setStorage
           wx.setStorage({
-            key: 'kkk',
-            data: res.data.message, //存第三条数据
+            key: 'token',
+            data: res.data.data, //存第三条数据
+          })
+          wx.navigateTo({
+            url: '../index/index'
           })
         } else {
           wx.showToast({
@@ -84,9 +86,7 @@ Page({
             icon: 'waring'
           })
         }
-        wx.navigateTo({
-          url: '../index/index'
-        })
+      
       },
       fail: function (res) {
         console.log(res)

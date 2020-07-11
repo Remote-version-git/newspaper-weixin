@@ -1,4 +1,6 @@
+const request = require('../utils/request');
 const app = getApp();
+
 
 export function getAllChannels(cb) {
   return wx.request({
@@ -6,9 +8,9 @@ export function getAllChannels(cb) {
     success: cb,
   })
 }
-export function getArticles(cb) {
-  return wx.request({
-    url: app.config.apiUrl + '/app/v1_1/articles',
-    success: cb,
-  })
+export function getArticles(options) {
+  return request({
+    url: '/app/v1_1/articles',
+    ...options
+  });
 }
