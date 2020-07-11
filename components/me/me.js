@@ -1,5 +1,7 @@
 // components/me.js
-import { getUser } from '../../api/me.js';
+import {
+  getSelf
+} from '../../api/me.js';
 const app = getApp();
 
 Component({
@@ -17,7 +19,11 @@ Component({
    * 组件的初始数据
    */
   data: {
-    user: {},
+    photo: '',
+    name: '',
+    like_count: '',
+    follow_count: '',
+    fans_count: ''
   },
 
   /**
@@ -25,5 +31,16 @@ Component({
    */
   methods: {
 
+  },
+  async attached() {
+    const res = await getSelf({});
+    this.setData({
+      photo: res.data.data.photo,
+      name: res.data.data.name,
+      like_count: res.data.data.like_count,
+      follow_count: res.data.data.follow_count,
+      fans_count: res.data.data.fans_count
+    })
+    console.log(res)
   }
 })
