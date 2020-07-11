@@ -1,13 +1,19 @@
+<wxs module="formatDate" src="../../filters/formatDate.wxs" />
 <view class="{{show ? '~show' : '~hidden'}}">
 	<van-nav-bar title="新闻头条" />
-	<van-tabs active="{{ active }}">
+	<van-tabs active="{{ active }}" bind:change="changeTabs">
 		<van-tab title="{{item.name}}" wx:for="{{channels}}" wx:key="id" />
 	</van-tabs>
-<recycle-view batch="{{batchSetRecycleData}}" id="recycleId">
-  <recycle-item wx:for="{{channels}}" wx:key="id">
-    <view>
-       {{item.name}}
-    </view>
-  </recycle-item>
-</recycle-view>
+	<recycle-view batch="{{batchSetRecycleData}}" id="recycleId" height="{{recycleViewHeight}}">
+		<recycle-item wx:for="{{articles}}" wx:key="art_id">
+			<van-cell title="{{item.title}}" use-label-slot>
+				<view slot="label">
+            <van-image wx:for="{{item.cover.images}}" wx:key="item"   width="80" height="80" src="{{item}}" lazy-load />
+            <van-tag type="danger" wx:if="{{item.is_top}}">置顶</van-tag>
+          <text>{{item.comm_count}}评论</text>
+          <text>{{formatDate.fromTime(item.pubdate)}}天前</text>
+				</view>
+			</van-cell>
+		</recycle-item>
+	</recycle-view>
 </view>

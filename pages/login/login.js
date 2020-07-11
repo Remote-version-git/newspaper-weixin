@@ -98,19 +98,18 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        console.log(res)
-        if (res.statusCode == '200') {
+        if (res.statusCode === '200' || '201') {
           wx.showToast({
             title: '验证成功',
             icon: 'success',
           })
           // 存入setStorage
           wx.setStorage({
-            key: 'key',
-            data: res.data.data
+            key: 'token',
+            data: res.data.data, //存第三条数据
           })
           wx.navigateTo({
-            url: '../index/index' //登录成功跳转到首页
+            url: '../index/index'
           })
         } else {
           wx.showToast({
@@ -118,6 +117,7 @@ Page({
             icon: 'none'
           })
         }
+      
       },
       fail: function (res) {
         console.log(res)
