@@ -3,10 +3,10 @@
 <!-- 头部 -->
 	<van-row custom-class="tabber">
 		<van-col span="8" custom-class="img-box">
-			<van-image width="4rem" height="4rem" round="true" custom-class="img" src="{{user.photo}}" />
+			<van-image width="4rem" height="4rem" round="true" custom-class="img" src="{{photo}}" />
 		</van-col>
 		<van-col span="8">
-			<view class="name-title">{{user.name}}</view>
+			<view class="name-title">{{name}}</view>
 			<van-tag round color="#fff" text-color="#3a9ffb" type="success">申请认证</van-tag>
 		</van-col>
 		<van-col span="8">
@@ -22,13 +22,13 @@
 	<van-row>
 	<van-grid column-num="3" border="{{false}}" gutter="0" >
 		<van-grid-item class="user-tab" text="获赞数" content-class="user-tab" text-class="text-tab">
-			<view slot="icon">{{user.like_count}}</view>
+			<view slot="icon">{{like_count}}</view>
 		</van-grid-item>
 		<van-grid-item class="user-tab" text="关注" content-class="user-tab" text-class="text-tab">
-			<view slot="icon">{{user.follow_count}}</view>
+			<view slot="icon">{{follow_count}}</view>
 		</van-grid-item>
 		<van-grid-item class="user-tab" text="粉丝" content-class="user-tab" text-class="text-tab">
-			<view slot="icon">{{user.fans_count}}</view>
+			<view slot="icon">{{fans_count}}</view>
 		</van-grid-item>
 	</van-grid>
 	</van-row>
