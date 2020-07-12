@@ -5,13 +5,15 @@
 		<van-tab title="{{item.name}}" wx:for="{{channels}}" wx:key="id" />
 	</van-tabs>
 	<recycle-view batch="{{batchSetRecycleData}}" id="recycleId" height="{{recycleViewHeight}}">
-		<recycle-item wx:for="{{articles}}" wx:key="art_id">
+		<recycle-item bind:tap="goToDetail" data-article-id="{{item.art_id}}" class="list-item" wx:for="{{articles}}" wx:key="index">
 			<van-cell title="{{item.title}}" use-label-slot>
 				<view slot="label">
             <van-image wx:for="{{item.cover.images}}" wx:key="item"   width="80" height="80" src="{{item}}" lazy-load />
             <van-tag type="danger" wx:if="{{item.is_top}}">置顶</van-tag>
-          <text>{{item.comm_count}}评论</text>
+          <view>
+          <text>{{item.comm_count}}评论 </text>
           <text>{{formatDate.fromTime(item.pubdate)}}天前</text>
+          </view>
 				</view>
 			</van-cell>
 		</recycle-item>

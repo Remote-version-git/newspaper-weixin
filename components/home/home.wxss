@@ -1,4 +1,3 @@
-.item {
-  width: 162rpx;
-  height: 182rpx;
+.list-item {
+  display: block;
 }
