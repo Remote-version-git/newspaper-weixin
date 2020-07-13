@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/login/login",
     "pages/register/register",
-    "pages/xiaozhi/xiaozhi"
+    "pages/xiaozhi/xiaozhi",
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",

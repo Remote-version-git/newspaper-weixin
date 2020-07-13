@@ -56,12 +56,6 @@ Page({
     // console.log(options.id);
     // console.log(options.name);
     // console.log(options.age);
-
-    // 头像
-    const res = getSelf({});
-    this.setData({
-      photo: res.data.data.photo
-    })
   },
       // getAvater:async function () {
       //   const res = await getSelf({});

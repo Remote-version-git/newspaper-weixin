@@ -73,9 +73,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "pages/login/login",
-					"pathName": "pages/login/login",
+					"id": 1,
+					"name": "pages/search/search",
+					"pathName": "pages/search/search",
 					"query": "",
 					"scene": null
 				},
@@ -83,6 +83,14 @@
 					"id": -1,
 					"name": "pages/xiaozhi/xiaozhi",
 					"pathName": "pages/xiaozhi/xiaozhi",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/login/login",
+					"pathName": "pages/login/login",
+					"query": "",
 					"scene": null
 				}
 			]
