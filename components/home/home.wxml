@@ -5,7 +5,7 @@
 		<van-tab title="{{item.name}}" wx:for="{{channels}}" wx:key="id" />
 	</van-tabs>
 	<recycle-view batch="{{batchSetRecycleData}}" id="recycleId" height="{{recycleViewHeight}}">
-		<recycle-item bind:tap="goToDetail" data-article-id="{{item.art_id}}" class="list-item" wx:for="{{articles}}" wx:key="index">
+		<recycle-item bind:tap="goToDetail" data-article-id="{{item.art_id}}" class="list-item" wx:for="{{articles}}" wx:key="art_id">
 			<van-cell title="{{item.title}}" use-label-slot>
 				<view slot="label">
             <van-image wx:for="{{item.cover.images}}" wx:key="item"   width="80" height="80" src="{{item}}" lazy-load />

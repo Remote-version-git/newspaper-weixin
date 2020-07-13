@@ -1,1 +1,161 @@
-/* pages/article/article.wxss */
+.article {
+  /* 给评论区域占位 */
+  padding-bottom: 95rpx;
+}
+.article-title {
+  margin: 46rpx;
+	line-height: 65rpx;
+  font-family: MicrosoftYaHei;
+	font-size: 40rpx;
+	font-weight: bold;
+	font-stretch: normal;
+	letter-spacing: 2rpx;
+  color: #3a3a3a;
+  text-align: center;
+}
+.article-auth-photo {
+  margin: 0 20rpx;
+}
+.article-aut-name {
+  color: #666;
+  font-weight: bold;
+}
+.article-aut-pubdate {
+  font-size: 14px;
+  color: #b5b5b5;
+}
+.article-follow-btn {
+  margin-left: auto;
+  margin-right: 36rpx;
+  width: 170rpx;
+	height: 58rpx;
+	background-color: #3296fa;
+  border-radius: 29rpx;
+  color: #ffffff;
+  text-align: center;
+  padding: 10rpx 20rpx;
+}
+/* 作者信息 area */
+.article-aut-info {
+  display: flex;
+}
+.article-follow-btn-active {
+  background: #56ce8e;
+}
+.article-content {
+  margin: 39rpx 42rpx 57rpx;
+}
+/* 猜你喜欢 */
+/* 猜你喜欢 标题 */
+.guess-like-title {
+  margin-left: 28rpx;
+  font-size: 18px;
+  font-weight: bold;
+}
+/* 猜你喜欢 内容 */
+.guess-like-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-between;
+  margin: 32rpx 74rpx 47rpx 42rpx;
+}
+.guess-like-content text {
+  margin-bottom: 32rpx;
+}
+/* 猜你喜欢 点赞区 */
+.guess-like-btns {
+  display: flex;
+  justify-content: center;
+}
+.guess-like-thumb, .guess-dislike-btn {
+  width: 223rpx;
+	height: 58rpx;
+	border-radius: 29rpx;
+}
+.guess-dislike-btn {
+  margin-left: 27rpx;
+}
+/* 广告区域 */
+.article-advert {
+  margin: 51rpx 38rpx 73rpx 25rpx;
+  padding: 24rpx 19rpx 30rpx 28rpx; 
+  border: 1px solid #e8e8e8;
+}
+.article-advert view{
+  align-self: flex-start;
+	font-family: MicrosoftYaHei;
+	font-size: 16px;
+	line-height: 65rpx;
+	letter-spacing: 1rpx;
+	color: #222222;
+}
+/* 评论 */
+.article-comment-item {
+  display: flex;
+  margin: 0 33rpx 24rpx;
+}
+/* 评论头像 */
+.comment-item-avatar {
+  margin-right: 20rpx;
+}
+.comment-item-right {
+  display: flex;
+  flex-direction: column;
+}
+/* 中间 */
+.comment-item-content {
+  margin: 32rpx 0;
+  color: #333333;
+}
+/* 顶部 */
+.comment-item-top {
+  display: flex;
+}
+/* 作者名称 */
+.comment-item-name {
+  color: #6c87af;
+  font-weight: bold;
+}
+/* 点赞 */
+.comment-item-thumb {
+  margin-left: auto;
+}
+/* 点赞数量 */
+.comment-item-thumb-count {
+  margin-left: 15rpx;
+}
+.comment-item-reply {
+  background: #f4f5f6;
+  color: #333333;
+  padding: 10rpx 21rpx;
+  border-radius: 15rpx;
+  margin-left: 48rpx;
+}
+/* 文章评论区域 */
+.article-comment-area {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  border: 1rpx solid #d8d8d8;
+  padding: 25rpx 0 14rpx 0;
+  background: #fff;
+  align-items: center;
+}
+.article-comemnt-input {
+  box-sizing: border-box;
+  width: 56%;
+  min-width: 399rpx;
+  height: 65rpx;
+  padding-left: 22rpx;
+  vertical-align: middle;
+	border-radius: 32rpx;
+  border: solid 2rpx #eeeeee;
+  color: #a7a7a7;
+  font-size: 30rpx;
+  font-family: MicrosoftYaHei;
+	line-height: 65rpx;
+	letter-spacing: 2rpx;
+}

@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    article: {},
   },
   onClickLeft() {
     wx.navigateBack();
@@ -15,7 +15,9 @@ Page({
    */
   onLoad: function (options) {
     getArticleDetail(options.articleId).then((res) => {
-      console.log(res)
+      this.setData({
+        article: res.data.data
+      })
     })
   },
 

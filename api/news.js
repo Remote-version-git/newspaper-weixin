@@ -15,7 +15,12 @@ export function getArticles(options) {
     dataType: "string",
     ...options
   }).then((res) => {
-    return JSONbig.parse(res.data).data;
+    res.data = res.data.replace(/\"art_id\"\:\s\d+/g, function (item) {
+      return item.replace(/\d+$/g, function (item2) {
+        return `\"${item2}\"`
+      })
+    })
+    return JSON.parse(res.data).data;
   });
 }
 

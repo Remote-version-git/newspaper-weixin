@@ -51,7 +51,7 @@ Component({
     // 跳转到文章详情
     goToDetail(event) {
       wx.navigateTo({
-        url: "/pages/article/article?articleId=" + event.currentTarget.dataset.articleId.c.join(''), 
+        url: "/pages/article/article?articleId=" + event.currentTarget.dataset.articleId, 
       })
     }
   },
