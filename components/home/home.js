@@ -30,6 +30,8 @@ Component({
   methods: {
     // 切换频道时
     async changeTabs(e) {
+      // 清空原先的文章数据
+      this.ctx.splice(0, this.ctx.getList().length);
       // 请求文章数据
       const article = await getArticles({
         data: {
@@ -39,11 +41,17 @@ Component({
         }
       })
       // 追加数据
-      this.ctx.append(article.data.data.results);
+      this.ctx.append(article.results);
       // 更新现在频道
       this.setData({
         currentChannel: this.data.channels[e.detail.index].id,
         active: e.detail.index
+      })
+    },
+    // 跳转到文章详情
+    goToDetail(event) {
+      wx.navigateTo({
+        url: "/pages/article/article?articleId=" + event.currentTarget.dataset.articleId, 
       })
     }
   },
@@ -80,7 +88,7 @@ Component({
           with_top: 0
         }
       })
-      this.ctx.append(article.data.data.results);
+      this.ctx.append(article.results);
       // 向视图层传递数据
       this.setData({
         channels: res.data.data.channels,

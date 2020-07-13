@@ -1,0 +1,79 @@
+<wxs src="../../filters/formatDate.wxs" module="formatDate" />
+<view class="article">
+<!-- 导航 -->
+	<van-nav-bar left-arrow title="文章" bind:click-left="onClickLeft" />
+  <!-- 标题 -->
+	<view class="article-title">{{article.title}}</view>
+  <!-- 作者信息 -->
+	<view class="article-aut-info">
+  <!-- 头像 -->
+			<van-image custom-class="article-auth-photo" round fit="cover" width="70rpx" height="70rpx" src="{{item.aut_photo}}" />
+      <!-- 作者名称 -->
+      <view>
+        <view class="article-aut-name">{{article.aut_name}}</view>
+        <!-- 发布时间 -->
+        <text class="article-aut-pubdate">{{formatDate.fromTime(article.pubdate)}}天前</text>
+      </view>
+      <!-- 关注按钮 article-follow-btn-active 激活状态 -->
+      <view class="article-follow-btn {{article.is_followed ? \"article-follow-btn-active\" : \"\"}}">{{ article.is_followed ? "已关注" : "+关注" }}</view>
+	</view>
+  <!-- render content -->
+  <view class="article-content">
+    <rich-text nodes="{{article.content}}"></rich-text>
+  </view>
+  <!-- 猜你喜欢区域 -->
+  <view>
+    <!-- 标题 -->
+    <view class="guess-like-title">猜你喜欢</view>
+    <!-- 内容项 -->
+    <view class="guess-like-content">
+      <text wx:for="{{[1, 2, 3, 4, 5, 6]}}" wx:key="item">了解微信小程序</text>
+    </view>
+    <!-- 操作区域 -->
+    <view class="guess-like-btns">
+      <van-button round plain type="default" icon="thumb-circle-o" custom-class="guess-like-thumb">点赞</van-button>
+      <van-button round plain type="danger" icon="delete" custom-class="guess-dislike-btn">不喜欢</van-button>
+    </view>
+  </view>
+  <!-- 广告区域 -->
+  <view class="article-advert">
+      <van-image width="635rpx" height="352rpx" fit="cover" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+      <view>这只猫咪想要喝水</view>
+      <view>大海很咸 河水甘甜</view>
+  </view>
+   <!-- 评论 -->
+   <view class="article-comment-item">
+      <!-- 头像 -->
+      <van-image width="75rpx" 
+      height="75rpx" fit="cover" src="https://img.yzcdn.cn/vant/cat.jpeg" round custom-class="comment-item-avatar" />
+      <!-- 右边内容区 -->
+      <view class="comment-item-right">
+        <!-- 顶部 -->
+        <view class="comment-item-top">
+            <!-- 作者名称 -->
+            <text class="comment-item-name">小麦的王子</text>
+            <!-- 点赞数量 -->
+            <view class="comment-item-thumb">
+              <van-icon name="thumb-circle-o" size="16px" />
+              <text class="comment-item-thumb-count">26</text>
+            </view>
+        </view>
+        <!-- 评论内容 -->
+        <view class="comment-item-content">
+          无情 哈拉嗦，东北爷们，正道得光，老铁们我做得对吗？？？
+        </view>
+        <!-- 评论底部 -->
+        <view class="comment-item-footer">
+          <text>09-13 15:51</text>
+          <text class="comment-item-reply">18回复</text>
+        </view>
+      </view>
+   </view>
+   <!-- 底部评论框 -->
+   <view class="article-comment-area">
+      <view class="article-comemnt-input">写评论</view>
+      <van-icon name="smile-comment-o" size="20" info="28" />
+      <van-icon name="star-o" size="20" />
+      <van-icon name="share" size="20" />
+   </view>
+</view>

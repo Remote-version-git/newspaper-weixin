@@ -5,3 +5,6 @@
 .hidden {
   display: none;
 }
+.navbar-background {
+  background: #3296fa;
+}
