@@ -1,4 +1,5 @@
 const app = getApp();
+// 发送验证码
 module.exports = {
   sendCode(mobile, cb) {
     return  wx.request({

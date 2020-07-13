@@ -1,0 +1,51 @@
+<!--components/me.wxml-->
+<view class="{{show ? '~show' : '~hidden'}}">
+<!-- 头部 -->
+	<van-row custom-class="tabber">
+		<van-col span="8" custom-class="img-box">
+			<van-image width="4rem" height="4rem" round="true" custom-class="img" src="{{photo}}" />
+		</van-col>
+		<van-col span="8">
+			<view class="name-title">{{name}}</view>
+			<van-tag round color="#fff" text-color="#3a9ffb" type="success">申请认证</van-tag>
+		</van-col>
+		<van-col span="8">
+			<van-tag size="large" custom-class="right-box" >
+				<van-icon name="newspaper-o" size="50rpx" />
+				<view class="text-box">
+				<text>今日阅读5分钟</text>
+				</view>
+			</van-tag>
+		</van-col>
+	</van-row>
+	<!-- 动态 关注 粉丝 -->
+	<van-row>
+	<van-grid column-num="3" border="{{false}}" gutter="0" >
+		<van-grid-item class="user-tab" text="获赞数" content-class="user-tab" text-class="text-tab">
+			<view slot="icon">{{like_count}}</view>
+		</van-grid-item>
+		<van-grid-item class="user-tab" text="关注" content-class="user-tab" text-class="text-tab">
+			<view slot="icon">{{follow_count}}</view>
+		</van-grid-item>
+		<van-grid-item class="user-tab" text="粉丝" content-class="user-tab" text-class="text-tab">
+			<view slot="icon">{{fans_count}}</view>
+		</van-grid-item>
+	</van-grid>
+	</van-row>
+	<!-- 收藏 历史 作品 -->
+	<van-grid column-num="3">
+		<van-grid-item icon="star-o" text="收藏" />
+		<van-grid-item icon="underway-o" text="历史" />
+		<van-grid-item icon="edit" text="作品" />
+	</van-grid>
+	<!-- 用户设置列表 -->
+	<van-cell-group>
+		<van-cell title="消息通知" is-link />
+		<van-cell title="实名认证" is-link />
+	</van-cell-group>
+	<van-cell-group>
+		<van-cell title="用户反馈" is-link />
+		<van-cell title="小智同学" is-link />
+		<van-cell title="系统设置" is-link />
+	</van-cell-group>
+</view>
