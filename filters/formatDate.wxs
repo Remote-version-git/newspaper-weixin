@@ -1,0 +1,13 @@
+// warning: forbid use es6 systax otherwise will occur error
+// 在这里 生成 date 对象需要使用 getDate函数, 返回一个当前时间的对象。具体见文档
+// 返回从传递时间到现在时间过去了多少天
+ module.exports = {
+   fromTime: function (pastTime) {
+    var nowTime = Date.now();
+    pastTime = getDate(pastTime).getTime();
+    return  getDate(nowTime - pastTime).getDay();
+  }
+ }
+
+//  导入：<wxs module="xxx" src="formatDate.wx" />
+// 使用：xxx.fromTime()

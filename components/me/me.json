@@ -1,0 +1,14 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-image": "@vant/weapp/image/index",
+    "van-grid": "@vant/weapp/grid/index",
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index",
+    "van-icon": "@vant/weapp/icon/index"
+  }
+}

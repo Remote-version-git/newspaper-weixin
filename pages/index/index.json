@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "home": "../../components/home/home"
+    "home": "../../components/home/home",
+    "me": "../../components/me/me"
   }
 }

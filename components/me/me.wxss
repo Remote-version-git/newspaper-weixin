@@ -1,0 +1,39 @@
+/* components/me.wxss */
+.tabber {
+  background-color: #3a9ffb;
+  color: #fff;
+  padding-top: 3rem;
+  line-height: 2rem;
+}
+
+.img {
+  border: 1rpx solid #fff;
+}
+
+.img-box {
+  text-align: center;
+}
+
+.name-title {
+  font-size: small;
+}
+.right-box {
+  float: right;
+  background-color: #3b7fca;
+  border-radius: 88rpx 0 0 88rpx;
+  padding-left: 24rpx;
+  padding-right: 0;
+  font-size: small;
+  height: 3rem;
+  text-align: left;
+}
+.text-box {
+  margin: 24rpx;
+}
+.user-tab {
+  background-color: #3a9ffb;
+  color: #fff;
+}
+.text-tab {
+  color: #fff;
+}

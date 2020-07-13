@@ -4,12 +4,14 @@
 />
 <van-cell-group>
   <van-field
-    value="{{ phonenumber }}"
+    value="{{ phoneNumber }}"
     required
     clearable
     label="手机号"
     placeholder="请输入手机号"
     bind:change="onChange"
+    type="number"
+    error-message="{{phoneMessage}}"
   />
   <van-field
     value="{{ captcha }}"
@@ -20,11 +22,13 @@
     border="{{ false }}"
     bind:change="onChangeCode"
     use-button-slot
+    error-message="{{codeMessage}}"
+    disabled = "{{codeInput}}"
   >
-    <van-button slot="button" size="small" type="primary" bindtap="sendCode"
-      >{{buttonvalue}}</van-button
+    <van-button slot="button" size="small" type="primary" bindtap="sendCode" disabled="{{banSend}}"
+      >{{buttonValue}}</van-button
     >
   </van-field>
 </van-cell-group>
-  <van-button type="info" size="large" bindtap="onlogin">登录</van-button>
+  <van-button type="info" size="large" bind:click="onlogin" disabled="{{sub}}">登录</van-button>
 </view>
