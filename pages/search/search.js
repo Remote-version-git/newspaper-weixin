@@ -5,7 +5,8 @@ Page({
    */
   data: {
     searchValue: '',
-    list: []
+    list: [],
+    statusBarHeight: getApp().globalData.statusBarHeight, //获取全局变量 导航栏的高度statusBarHeight
   },
 
   /**
@@ -27,7 +28,7 @@ Page({
       console.log(result[1]); // "dsfasjfj3124123"
     }
   },
-
+  // 监听搜索框
   inputChange(e) {
     let self = this,
       value = e.detail.value;
@@ -40,7 +41,7 @@ Page({
     }
     self.request(value);
   },
-
+  // 发起搜索请求
   request(value) {
     var self = this;
     var url = 'http://ttapi.research.itcast.cn/app/v1_0/search';
@@ -56,4 +57,10 @@ Page({
       }
     });
   },
+  // 跳转到文章详情
+  goToDetail(event) {
+    wx.navigateTo({
+      url: "/pages/article/article?articleId=" + event.currentTarget.dataset.articleId,
+    })
+  }
 })

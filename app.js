@@ -35,6 +35,13 @@ App({
         }
       }
     })
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+          that.globalData.statusBarHeight = res.statusBarHeight
+        }
+        // console.log(res.statusBarHeight, 'statusBarHeight')
+      })
   },
   globalData: {
     userInfo: null
