@@ -45,7 +45,7 @@
 	</van-cell-group>
 	<van-cell-group>
 		<van-cell title="用户反馈" is-link />
-		<van-cell title="小智同学" is-link />
+		<van-cell title="小智同学" is-link url="../../pages/xiaozhi/xiaozhi"/>
 		<van-cell title="系统设置" is-link />
 	</van-cell-group>
 </view>
