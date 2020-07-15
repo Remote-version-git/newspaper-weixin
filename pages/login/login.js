@@ -47,6 +47,7 @@ Page({
         })
       } else {
         this.setData({
+          phoneMessage: "",
           codeInput: false, //解除验证码输入框的禁用
           banSend: true //禁用发送验证码按钮
         })
@@ -75,7 +76,10 @@ Page({
   },
   //监听验证码输入框
   onChangeCode(e) {
-    if (this.data.captcha.length === 5) {
+    this.setData({
+      captcha: e.detail
+    })
+    if (this.data.captcha.length === 6) {
       this.setData({
         sub: false // 解除登录按钮的禁用
       })
@@ -84,9 +88,7 @@ Page({
         sub: true //禁用登录按钮
       })
     }
-    this.setData({
-      captcha: e.detail
-    })
+
   },
   // 登录功能
   onlogin: function () {

@@ -6,6 +6,7 @@ Page({
   data: {
     searchValue: '',
     list: [],
+    recycleViewHeight: 500,
     statusBarHeight: getApp().globalData.statusBarHeight, //获取全局变量 导航栏的高度statusBarHeight
   },
 

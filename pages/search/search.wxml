@@ -6,10 +6,19 @@
 			<input type='text' bindinput='inputChange' value='{{ searchValue }}' placeholder='搜索' class='search-input' />
 		</view>
 	</view>
-	<block wx:for="{{list}}" wx:key="{{index}}" class="search-result">
+	<recycle-view batch="{{batchSetRecycleData}}" id="recycleId" height="{{recycleViewHeight}}">
+		<recycle-item bind:tap="goToDetail" data-article-id="{{item.art_id}}" class="list-item" wx:for="{{list}}" wx:key="index">
+			<van-cell title="{{item.title}}" use-label-slot>
+				<view slot="label">
+            <van-image wx:for="{{item.cover.images}}" wx:key="item"   width="80" height="80" src="{{item}}" lazy-load />
+				</view>
+			</van-cell>
+		</recycle-item>
+	</recycle-view>
+		<!-- <block wx:for="{{list}}" wx:key="{{index}}" class="search-result"> -->
 		<!-- 搜索结果列表 -->
-		<view class="search-item">
+		<!-- <view class="search-item">
 			<text class="search-item-title" bind:tap="goToDetail" data-article-id="{{item.art_id}}">{{item.title}}</text>
 		</view>
-	</block>
+	</block> -->
 </view>
