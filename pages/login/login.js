@@ -75,7 +75,7 @@ Page({
   },
   //监听验证码输入框
   onChangeCode(e) {
-    if (this.data.captcha.length === 5) {
+    if (this.data.captcha.length >= 5) {
       this.setData({
         sub: false // 解除登录按钮的禁用
       })

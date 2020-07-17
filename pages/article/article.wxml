@@ -7,7 +7,7 @@
   <!-- 作者信息 -->
 	<view class="article-aut-info">
   <!-- 头像 -->
-			<van-image custom-class="article-auth-photo" round fit="cover" width="70rpx" height="70rpx" src="{{item.aut_photo}}" />
+			<van-image custom-class="article-auth-photo" round fit="cover" width="85rpx" height="85rpx" src="{{article.aut_photo}}" />
       <!-- 作者名称 -->
       <view>
         <view class="article-aut-name">{{article.aut_name}}</view>
