@@ -1,7 +1,7 @@
 <view class="index">
   <home show="{{active === 0 ? true : false}}" />
   <me show="{{active === 3 ? true : false}}" />
-  <van-tabbar active="{{ active }}" bind:change="onChange">
+  <van-tabbar safe-area-inset-bottom fixed active="{{ active }}" bind:change="onChange">
     <van-tabbar-item icon="home-o">首页</van-tabbar-item>
     <van-tabbar-item icon="chat-o">问答</van-tabbar-item>
     <van-tabbar-item icon="video-o">视频</van-tabbar-item>

@@ -15,7 +15,7 @@ export function getArticles(options) {
     dataType: "string",
     ...options
   }).then((res) => {
-    res.data = res.data.replace(/\"art_id\"\:\s\d+/g, function (item) {
+    res.data = res.data.replace(/\"[^\"]+id\"\:\s\d+/ig, function (item) {
       return item.replace(/\d+$/g, function (item2) {
         return `\"${item2}\"`
       })
