@@ -163,8 +163,7 @@ Component({
       }
     }
   },
-  // 组件添加到节点时
-  ready() {
+  attached() {
     // 解决列表高度自适应问题
     this.createSelectorQuery().selectAll('#scroll-list').boundingClientRect().exec(rects => {
       // 获取高度用于设置列表高度
@@ -176,6 +175,9 @@ Component({
         scrollViewHeight: systemInfo.windowHeight - 50 - rects[0][0].top,
       })
     })
+  },
+  // 组件添加到节点时
+  ready() {
     // 获取全部频道
     getAllChannels(res => {
       let channels = res.data.data.channels;

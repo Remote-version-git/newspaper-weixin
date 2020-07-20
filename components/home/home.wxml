@@ -14,7 +14,7 @@
 <wxs module="formatDate" src="../../filters/formatDate.wxs" />
 <!-- 控制组件是否显示 -->
 <view class="{{show ? '~show' : '~hidden'}}">
-	<van-nav-bar  placeholder title="新闻头条" />
+	<van-nav-bar title="新闻头条" />
 	<!-- 标题 -->
 	<view class="~search-bar">
 		<view class="~search-wrap">
@@ -28,7 +28,7 @@
 	</van-tabs>
 	<!-- 文章列表 -->
 	<!-- {{scrollViewHeight}}px -->
-	<scroll-view id="scroll-list" style="height: 400px" scroll-y="{{true}}" bindscrolltolower="onPullUp" refresher-enabled="{{true}}" refresher-default-style="none" refresher-background="none" refresher-triggered="{{triggered}}" bindrefresherpulling="{{refresh.onPulling}}" bindrefresherrefresh="onRefresh" bindrefresherrestore="onRestore" bindrefresherabort="onAbort">
+	<scroll-view id="scroll-list" style="height: 830rpx;" scroll-y="{{true}}" bindscrolltolower="onPullUp" refresher-enabled="{{true}}" refresher-default-style="none" refresher-background="none" refresher-triggered="{{triggered}}" bindrefresherpulling="{{refresh.onPulling}}" bindrefresherrefresh="onRefresh" bindrefresherrestore="onRestore" bindrefresherabort="onAbort">
 		<view slot="refresher" class="refresh-container">
 			<image src="../../images/icons/Loading.png" lazy-load class="icon loading" mode="widthFix"></image>
 		</view>
