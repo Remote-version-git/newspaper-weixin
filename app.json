@@ -6,7 +6,8 @@
     "pages/register/register",
     "pages/article/article",
     "pages/xiaozhi/xiaozhi",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/user/user"
   ],
   "window": {
     "backgroundTextStyle": "light",

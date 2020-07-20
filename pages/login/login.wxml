@@ -30,5 +30,5 @@
     >
   </van-field>
 </van-cell-group>
-  <van-button type="info" size="large" bind:click="onlogin">登录</van-button>
+  <van-button type="info" size="large" bind:click="onlogin" disabled="{{sub}}">登录</van-button>
 </view>

@@ -1,0 +1,32 @@
+<view class="page">
+	<van-nav-bar title="个人信息" right-text="保存" left-arrow bind:click-left="onClickLeft" bind:click-right="onClickRight" custom-style="background-color:#3e9cfa; color:#fff;" color="#fff" />
+
+	<view class="list">
+		<navigator open-type="navigate" class="item item-avatar item-icon-right  ">
+			<image src="{{photo}}" alt="" bindtap="changeAvatar"></image>
+			<text>头像</text>
+		</navigator>
+		<navigator open-type="navigate" class="item item-icon-right" bindtap="changeName">
+			<view class="h2">昵称
+				<text class="item-note" wx:if="{{!changeReady}}">{{name}}</text>
+				<input type="text" value="{{user.name}}" wx:else bindfocus="changeStart" bindblur="changeEnd" class="name-note"></input>
+			</view>
+		</navigator>
+		<navigator class="item" bindtap="changeIntro">
+			<view class="h2">介绍 <text class="item-note" wx:if="{{!changeOK}}">{{intro}}</text>
+				<input type="text" value="{{intro}}" wx:else bindfocus="changeBegin" bindblur="changeFinish" class="name-note"></input></view>
+		</navigator>
+
+		<navigator url="" open-type="navigate" class="item item-icon-right {{usertype==1?'item-borderless':''}}">
+			<view class="h2">性别 <text class="item-note">{{userdata.sex==0?'保密':(userdata.sex==1?'男':'女')}}</text></view>
+			<text class="icon-accessory iconfont icon-right "></text>
+		</navigator>
+		<navigator url="" open-type="navigate" class="item item-icon-right {{usertype==1?'item-borderless':''}}">
+			<view class="h2">生日 </view>
+			<text class="icon-accessory iconfont icon-right "></text>
+		</navigator>
+	</view>
+
+
+
+</view>

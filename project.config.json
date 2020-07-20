@@ -100,6 +100,12 @@
 					"pathName": "pages/article/article",
 					"query": "articleId=1170630783379963904",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user/user",
+					"pathName": "pages/user/user",
+					"scene": null
 				}
 			]
 		}

@@ -1,0 +1,46 @@
+/* pages/user/user.wxss */
+.page {
+  background-color: #ccc;
+  width: 100%;
+  height: 100%;
+}
+
+.van-nav-bar .van-icon,
+.van-nav-bar__text,
+.van-nav-bar__title {
+  color: #fff !important;
+}
+
+.list {
+  background-color: #fff;
+  border-bottom: 1rpx solid #ccc;
+}
+
+navigator {
+  border-bottom: 1rpx solid #ccc;
+  padding: 20rpx;
+  box-sizing: border-box;
+  height: 150rpx;
+  line-height: 110rpx;
+}
+
+.item-avatar {
+  clear: both;
+}
+
+.item-avatar image {
+  float: right;
+  border-radius: 50%;
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.item-note,.name-note {
+  float: right;
+  text-align: right;
+}
+.name-note {
+  position: relative;
+  top: 28rpx;
+  line-height: 100rpx;
+}

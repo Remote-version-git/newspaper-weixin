@@ -30,7 +30,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    userTo() {
+      wx.navigateTo({
+        url: '/pages/user/user',
+      })
+    }
   },
   async attached() {
     const res = await getSelf();
@@ -45,5 +49,5 @@ Component({
       })
     }
    
-  }
+  },
 })

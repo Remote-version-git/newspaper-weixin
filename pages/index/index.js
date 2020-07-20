@@ -7,9 +7,11 @@ Page({
     loading: true
   },
   onLoad: function () {
-   
+
   },
   onChange(event) {
-    this.setData({ active: event.detail });
+    this.setData({
+      active: event.detail
+    });
   }
 })

@@ -1,7 +1,7 @@
 <!--components/me.wxml-->
 <view class="{{show ? '~show' : '~hidden'}}">
 <!-- 头部 -->
-	<van-row custom-class="tabber">
+	<van-row custom-class="tabber"  bind:tap="userTo">
 		<van-col span="8" custom-class="img-box">
 			<van-image width="4rem" height="4rem" round="true" custom-class="img" src="{{photo}}" />
 		</van-col>
