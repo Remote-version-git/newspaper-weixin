@@ -1,23 +1,25 @@
 <view style='height: {{statusBarHeight}}px;'></view>
+<van-nav-bar fixed placeholder left-arrow title="搜索文章" bind:click-left="onClickLeft" />
 <view class="search">
 	<view class="search-bar">
 		<view class="search-wrap">
 			<!-- 搜索框 -->
 			<input type='text' bindinput='inputChange' value='{{ searchValue }}' placeholder='搜索' class='search-input' />
 		</view>
+			<van-button icon="delete" custom-class="search-cancel-button" bind:tap="cleanInput" plain />
 	</view>
 	<recycle-view batch="{{batchSetRecycleData}}" id="recycleId" height="{{recycleViewHeight}}">
 		<recycle-item bind:tap="goToDetail" data-article-id="{{item.art_id}}" class="list-item" wx:for="{{list}}" wx:key="index">
 			<van-cell title="{{item.title}}" use-label-slot>
 				<view slot="label">
-            <van-image wx:for="{{item.cover.images}}" wx:key="item"   width="80" height="80" src="{{item}}" lazy-load />
+					<van-image wx:for="{{item.cover.images}}" wx:key="item" width="80" height="80" src="{{item}}" lazy-load />
 				</view>
 			</van-cell>
 		</recycle-item>
 	</recycle-view>
-		<!-- <block wx:for="{{list}}" wx:key="{{index}}" class="search-result"> -->
-		<!-- 搜索结果列表 -->
-		<!-- <view class="search-item">
+	<!-- <block wx:for="{{list}}" wx:key="{{index}}" class="search-result"> -->
+	<!-- 搜索结果列表 -->
+	<!-- <view class="search-item">
 			<text class="search-item-title" bind:tap="goToDetail" data-article-id="{{item.art_id}}">{{item.title}}</text>
 		</view>
 	</block> -->

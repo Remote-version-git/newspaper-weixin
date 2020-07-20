@@ -1,41 +1,37 @@
 <wxs module="refresh">
-module.exports = {
-  onPulling: function(evt, instance) {
-		// 下拉的幅度 0 ~　1
-    var p = Math.min(evt.detail.dy / 80, 1);
-    var view = instance.selectComponent('.refresh-container')
-    view.setStyle({
-      opacity: p > 0.1 ? p : 0,
-    })
-  }
-}
-
+	module.exports = {
+		onPulling: function(evt, instance) {
+			// 下拉的幅度 0 ~　1
+			var p = Math.min(evt.detail.dy / 80, 1);
+			var view = instance.selectComponent('.refresh-container')
+			view.setStyle({
+				opacity: p > 0.1 ? p : 0,
+			})
+		}
+	}
 </wxs>
 <!-- 格式化日期 -->
 <wxs module="formatDate" src="../../filters/formatDate.wxs" />
 <!-- 控制组件是否显示 -->
 <view class="{{show ? '~show' : '~hidden'}}">
+	<van-nav-bar  placeholder title="新闻头条" />
 	<!-- 标题 -->
-	<van-nav-bar title="新闻头条" />
+	<view class="~search-bar">
+		<view class="~search-wrap">
+			<!-- 搜索框 -->
+			<input disabled type='text' bind:tap="goToSearch"  placeholder='请输入搜索关键词' class='search-input' />
+		</view>
+	</view>
 	<!-- 频道tab条 -->
 	<van-tabs active="{{ active }}" bind:change="changeTabs">
 		<van-tab title="{{item.name}}" wx:for="{{channels}}" wx:key="id" />
 	</van-tabs>
 	<!-- 文章列表 -->
 	<!-- {{scrollViewHeight}}px -->
-	<scroll-view id="scroll-list" style="height: 400px" scroll-y="{{true}}" bindscrolltolower="onPullUp"
-	  refresher-enabled="{{true}}"
-		refresher-default-style="none"
-		refresher-background="none"
-		refresher-triggered="{{triggered}}"
-		bindrefresherpulling="{{refresh.onPulling}}"
-		bindrefresherrefresh="onRefresh"
-		bindrefresherrestore="onRestore"
-		bindrefresherabort="onAbort"
-	>
-	<view slot="refresher" class="refresh-container">
+	<scroll-view id="scroll-list" style="height: 400px" scroll-y="{{true}}" bindscrolltolower="onPullUp" refresher-enabled="{{true}}" refresher-default-style="none" refresher-background="none" refresher-triggered="{{triggered}}" bindrefresherpulling="{{refresh.onPulling}}" bindrefresherrefresh="onRefresh" bindrefresherrestore="onRestore" bindrefresherabort="onAbort">
+		<view slot="refresher" class="refresh-container">
 			<image src="../../images/icons/Loading.png" lazy-load class="icon loading" mode="widthFix"></image>
-  </view>
+		</view>
 		<van-cell wx:for="{{channels[active].articles}}" wx:key="art_id" title="{{item.title}}" use-label-slot bindtap="goToDetail" data-article-id="{{item.art_id}}">
 			<view slot="label">9+
 				<van-image wx:for="{{item.cover.images}}" wx:for-item="img" wx:key="img" width="80" height="80" src="{{img}}" lazy-load />
@@ -46,7 +42,7 @@ module.exports = {
 				</view>
 			</view>
 		</van-cell>
-		<view class="article-list-after" >
+		<view class="article-list-after">
 			<!-- 和顶部图标互相排斥 通过 triggered -->
 			<image hidden="{{triggered}}" src="../../images/icons/Loading.png" class="icon loading" mode="widthFix" lazy-load></image>
 		</view>

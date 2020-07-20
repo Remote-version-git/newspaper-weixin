@@ -150,4 +150,7 @@ Page({
   onReady: function () {
 
   },
+  onClickLeft() {
+    wx.navigateBack();
+  }
 })

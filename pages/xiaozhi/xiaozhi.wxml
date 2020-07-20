@@ -1,5 +1,6 @@
 <!--index.wxml-->
 <view class="wrapper {{isShowAdd?'media-padd':''}} {{isEmotion?'emotion-padd':''}}" id="wrapperCon" bindtap="cancelShow">
+	<van-nav-bar fixed placeholder left-arrow title="小智同学" bind:click-left="onClickLeft" />
   <!-- 消息列表 -->
   <view class="chat {{item.type=='L'?'chat-l':'chat-r'}}" wx:for="{{messageList}}" wx:for-item="item">
     <!-- <view class="c-date">{{item.nowDate}}</view> -->

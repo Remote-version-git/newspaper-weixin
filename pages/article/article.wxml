@@ -1,7 +1,7 @@
 <wxs src="../../filters/formatDate.wxs" module="formatDate" />
 <view class="article">
 <!-- 导航 -->
-	<van-nav-bar left-arrow title="文章" bind:click-left="onClickLeft" />
+	<van-nav-bar fixed placeholder left-arrow title="文章" bind:click-left="onClickLeft" />
   <!-- 标题 -->
 	<view class="article-title">{{article.title}}</view>
   <!-- 作者信息 -->

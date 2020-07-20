@@ -33,6 +33,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    goToSearch() {
+      wx.navigateTo({
+        url: "/pages/search/search"
+      })
+    },
     // 切换频道时
     changeTabs(e) {
       // 切换频道的时候，如果正在下拉刷新，则取消掉

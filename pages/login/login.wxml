@@ -25,7 +25,7 @@
     error-message="{{codeMessage}}"
     disabled = "{{codeInput}}"
   >
-    <van-button slot="button" size="small" type="primary" bindtap="sendCode" disabled="{{banSend}}"
+    <van-button slot="button" size="small" type="primary" bind:click="sendCode" disabled="{{banSend}}"
       >{{buttonValue}}</van-button
     >
   </van-field>

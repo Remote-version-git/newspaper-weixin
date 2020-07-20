@@ -16,7 +16,12 @@ Page({
   onLoad: function (options) {
 
   },
-
+  cleanInput() {
+    this.setData({
+      searchValue: '',
+      list: []
+    })
+  },
   testKuoHao() {
     var aa = "ldfjsldfj(dsfasjfj3124123)AAA";
     //1 查找(开始
@@ -63,5 +68,8 @@ Page({
     wx.navigateTo({
       url: "/pages/article/article?articleId=" + event.currentTarget.dataset.articleId,
     })
+  },
+  onClickLeft() {
+    wx.navigateBack();
   }
 })
