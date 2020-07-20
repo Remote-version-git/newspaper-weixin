@@ -1,6 +1,6 @@
 <view class="index">
 	<home show="{{active === 0 ? true : false}}" />
-	<player show="{{active === 2 ? true : false}}" />
+	<player wx:if="{{active === 2 ? true : false}}" />
 	<me show="{{active === 3 ? true : false}}" />
 	<van-tabbar safe-area-inset-bottom fixed active="{{ active }}" bind:change="onChange" z-index="9999">
 		<van-tabbar-item icon="home-o">首页</van-tabbar-item>

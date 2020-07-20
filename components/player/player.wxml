@@ -1,19 +1,19 @@
-	<view class="{{show ? '~show' : '~hidden'}}">
-		<view class="video" wx:for="{{videos}}" wx:key="v_id">
-			<video id="myVideo1" class="myVideo" src="{{item.src}}" custom-cache="{{false}}">
+	<view>
+		<view class="video" wx:for="{{videos}}" wx:key="{{item.v_id}}">
+			<video id="{{item.myVideo}}" class="myVideo" src="{{item.src}}" custom-cache="{{false}}">
 			</video>
-			<view style="display: {{ index == 1 ? 'none' : 'block' }};" id="1">
+			<view style="display: {{ item.v_id== default ? 'none' : 'block' }};">
 				<cover-view class="controls" id="controls">
 					<cover-image src="{{item.cover}}" />
 				</cover-view>
 				<cover-view class="title" style="z-index:200;color:#FFF;font-size:15px;">{{item.title}}</cover-view>
 				<cover-view class="play" style="z-index:200;">
-					<cover-image bindtap="bindplay" data-id="1" src="../../imgs/play.png" style="width:160rpx;" />
+					<cover-image bindtap="videoPlay" data-id="{{item.v_id}}" src="../../imgs/play.png" style="width:160rpx;" />
 				</cover-view>
 			</view>
 			<view class="info">
 				<image src="{{item.avatar}}" class="avatar"></image><span id="name">{{item.writer}}</span>
 			</view>
-		<view style="clear:both"></view>
+			<view style="clear:both"></view>
 		</view>
 	</view>
